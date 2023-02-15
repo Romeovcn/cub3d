@@ -49,7 +49,12 @@ void get_next2_point(double *x, double *y, double xRatio, int quartile)
 		*y = *y + 1;
 	else
 		*y = *y - 1;
-	printf("checked in 2 x=%f y=%f xIndex=%d yIndex=%d\n", *x, *y, (int)*x, (int)*y);
+	// printf("checked in 2 x=%f y=%f xIndex=%d yIndex=%d\n", *x, *y, (int)*x, (int)*y);
+}
+
+double ft_ceil(double nbr)
+{
+	printf("%f\n", (nbr + 1) - nbr);
 }
 
 double get_vector_distance(double playerX, double playerY, double angle) {
@@ -131,13 +136,15 @@ double get_vector_distance(double playerX, double playerY, double angle) {
 			else if (quartile == 2)
 			{
 				// printf("ici--------------------\n");
-				// printf("FOUND AT %d, %d or %f, %f\n", (int)x2, (int)y2, x2, y2);
 				if (map[(int)y2][(int)x2] == 1)
 					break ;
 			}
 			else if (quartile == 3)
 			{
-				if (map[(int)y2 - 1][(int)x2] == 1)
+				// xDiff = ceil(xDiff);
+				// yDiff = ceil(yDiff);
+				// printf("FOUND AT %d, %d or %f, %f\n", (int)ceil(x2) - 1, (int)y2 - 1, x2, y2);
+				if (map[(int)y2 - 1][(int)ceil(x2) - 1] == 1)
 					break ;
 			}
 			else if (quartile == 4)
@@ -159,10 +166,11 @@ int main(void)
 {
     double playerX = 5.0;
     double playerY = 5.0;
-	double angle = 270;
+	double angle = 231;
    
     // for (double angle = 0; angle < 60; angle += 0.06) {
-		get_vector_distance(playerX, playerY, angle);
+		// get_vector_distance(playerX, playerY, angle);
     // }
+	ft_ceil(1.654);
     return 0;
 }
